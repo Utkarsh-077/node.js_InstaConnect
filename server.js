@@ -13,7 +13,7 @@ const io = socketio(server);
 //set static folders
 app.use(express.static(path.join(__dirname, 'public')));
 
-const botName = 'ChatCord Bot';
+const botName = ' ';
 //run when client connect
 io.on('connection', socket => {
     socket.on('joinRoom', ({username, room}) =>{
@@ -24,7 +24,7 @@ io.on('connection', socket => {
 
 
     //welcome new user
-    socket.emit('message', formatMessage(botName, 'welcome to chatcord!'));
+    socket.emit('message', formatMessage(botName, 'Welcome to InstaConnect!'));
 
     //broadcast when user connects
     socket.broadcast.to(user.room).emit('message', formatMessage(botName, `${user.username} has joined the chat`));
